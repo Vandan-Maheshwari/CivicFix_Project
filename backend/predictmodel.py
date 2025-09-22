@@ -5,11 +5,12 @@ import json
 import sys
 
 # Load trained model
-model = load_model("civicfix_model4.h5")
-img_path= "C:\\Dont touch me !!!\\GIthub\\CivicFix\\test.jpg"
+MODEL_PATH = r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\civicfix_model4.h5"
+model = load_model(MODEL_PATH)
+# img_path= "C:\\Dont touch me !!!\\GIthub\\CivicFix\\test.jpg"
 
 # Load class names
-with open("class_names.json", "r") as f:
+with open(r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\class_names.json", "r") as f:
     class_names = json.load(f)
 
 def predict_image(img_path):
@@ -29,5 +30,5 @@ def predict_image(img_path):
 #         print("⚠️ Please provide an image path: python predict.py test.jpg")
 #     else:
 #         img_path = sys.argv[1]
-pred, conf = predict_image(img_path)
-print(f"Predicted issue: {pred} ({conf:.2f}%)")
+# pred, conf = predict_image(img_path)
+# print(f"Predicted issue: {pred} ({conf:.2f}%)")
