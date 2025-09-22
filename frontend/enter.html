@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicFix - Login or Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="enter.css">
+    <link rel = "icon" href="Civic_icon.jpeg" >
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-house-damage"></i>
+                    <a href="home.html" style="color: white; text-decoration: none;">CivicFix</a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="home.html#features">Features</a></li>
+                    <li><a href="home.html#how-it-works">How It Works</a></li>
+                    <li><a href="home.html#map">Map</a></li>
+                    <li><a href="home.html#report">Report Issue</a></li>
+                    <li><a href="home.html#leaderboard">Leaderboard</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <button class="btn btn-login" onclick="window.location.href='home.html'">Back to Home</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Auth Container -->
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h2>Welcome to CivicFix</h2>
+                <p>Report local issues and make a difference in your community</p>
+            </div>
+            
+            <div class="auth-tabs">
+                <div class="auth-tab active" id="login-tab">Login</div>
+                <div class="auth-tab" id="signup-tab">Sign Up</div>
+            </div>
+            
+            <!-- Login Form -->
+            <form class="auth-form" id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email Address</label>
+                    <input type="email" class="form-control" id="login-email" placeholder="Enter your email" required>
+                    <div class="error-message" id="login-email-error">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <div class="password-input">
+                        <input type="password" class="form-control" id="login-password" placeholder="Enter your password" required>
+                        <span class="toggle-password" id="toggle-login-password">
+                            <i class="far fa-eye"></i>
+                        </span>
+                    </div>
+                    <div class="error-message" id="login-password-error">Password is required</div>
+                </div>
+                
+                <div class="form-options">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-password">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="btn-auth">Login</button>
+                
+                <div class="auth-divider">
+                    <span>Or continue with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <div class="social-btn google">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="social-btn twitter">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Signup Form -->
+            <form class="auth-form" id="signup-form" style="display: none;">
+                <div class="form-group">
+                    <label for="signup-name">Full Name</label>
+                    <input type="text" class="form-control" id="signup-name" placeholder="Enter your full name (First Last)" required>
+                    <div class="error-message" id="signup-name-error">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-email">Email Address</label>
+                    <input type="email" class="form-control" id="signup-email" placeholder="Enter your email" required>
+                    <div class="error-message" id="signup-email-error">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-mobile">Mobile Number</label>
+                    <input type="tel" class="form-control" id="signup-mobile" placeholder="Enter 10-digit mobile number" required maxlength="10" pattern="[6-9][0-9]{9}">
+                    <div class="error-message" id="signup-mobile-error">Please enter a valid mobile number</div>
+                    <small class="form-help">Enter 10 digits starting with 6, 7, 8, or 9</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-password">Password</label>
+                    <div class="password-input">
+                        <input type="password" class="form-control" id="signup-password" placeholder="Create a password (min 6 characters)" required>
+                        <span class="toggle-password" id="toggle-signup-password">
+                            <i class="far fa-eye"></i>
+                        </span>
+                    </div>
+                    <div class="error-message" id="signup-password-error">Password must be at least 6 characters</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="signup-confirm">Confirm Password</label>
+                    <div class="password-input">
+                        <input type="password" class="form-control" id="signup-confirm" placeholder="Confirm your password" required>
+                        <span class="toggle-password" id="toggle-signup-confirm">
+                            <i class="far fa-eye"></i>
+                        </span>
+                    </div>
+                    <div class="error-message" id="signup-confirm-error">Passwords do not match</div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="remember-me">
+                        <input type="checkbox" id="terms-agree" required>
+                        <label for="terms-agree">I agree to the <a href="privacy.html" target="_blank">Terms of Service</a> and <a href="privacy.html" target="_blank">Privacy Policy</a></label>
+                    </div>
+                    <div class="error-message" id="terms-error">You must agree to the terms</div>
+                </div>
+                
+                <button type="submit" class="btn-auth">Create Account</button>
+                
+                <div class="auth-divider">
+                    <span>Or sign up with</span>
+                </div>
+                
+                <div class="social-auth">
+                    <div class="social-btn google">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="social-btn facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </div>
+                    <div class="social-btn twitter">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="auth-footer">
+                <p id="auth-footer-text">
+                    Don't have an account? <a href="#" id="auth-switch-link">Sign up now</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CivicFix</h3>
+                    <p>Making our communities better, one report at a time.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html#features">Features</a></li>
+                        <li><a href="home.html#how-it-works">How It Works</a></li>
+                        <li><a href="home.html#map">Map</a></li>
+                        <li><a href="home.html#report">Report Issue</a></li>
+                        <li><a href="home.html#leaderboard">Leaderboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Help Center</a></li>
+                        <li><a href="FAQ.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="privacy.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form>
+                        <input type="email" class="form-control" placeholder="Your Email" style="margin-bottom: 10px;">
+                        <button class="btn btn-signup" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CivicFix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="api.js"></script>
+    <script src="enter.js"></script>
+</body>
+</html>

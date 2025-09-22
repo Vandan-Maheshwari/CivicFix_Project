@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions - CivicFix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="FAQ.css">
+    <link rel = "icon" href="Civic_icon.jpeg" >
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-house-damage"></i>
+                    <span>CivicFix</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="home.html#features">Features</a></li>
+                    <li><a href="home.html#how-it-works">How It Works</a></li>
+                    <li><a href="home.html#map">Map</a></li>
+                    <li><a href="home.html#report">Report Issue</a></li>
+                    <li><a href="home.html#leaderboard">Leaderboard</a></li>
+                    <li><a href="FAQ.html" class="active">FAQ</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="enter.html" class="btn btn-login">Login</a>
+                    <a href="enter.html" class="btn btn-signup">Sign up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            <ul class="breadcrumb">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Can We Help You?</h2>
+                <p>Find answers to the most common questions about CivicFix</p>
+            </div>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Search for questions...">
+                <i class="fas fa-search"></i>
+            </div>
+            
+            <div class="category-filter">
+                <button class="category-btn active" data-category="all">All Questions</button>
+                <button class="category-btn" data-category="account">Account</button>
+                <button class="category-btn" data-category="reporting">Reporting Issues</button>
+                <button class="category-btn" data-category="privacy">Privacy & Security</button>
+                <button class="category-btn" data-category="technical">Technical</button>
+            </div>
+            
+            <div class="faq-container">
+                <!-- Account Questions -->
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">
+                        <span>How do I create an account?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Creating an account is simple! Click on the "Sign Up" button in the top right corner of the page. You'll need to provide your name, email address, and create a password. Alternatively, you can sign up using your Google or Facebook account for faster registration.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">
+                        <span>Is there a fee to use CivicFix?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>No, CivicFix is completely free for citizens to use. Our service is funded through partnerships with local municipalities and grants aimed at improving civic engagement.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="account">
+                    <div class="faq-question">
+                        <span>I forgot my password. How can I reset it?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Click on the "Login" button and then select "Forgot Password." Enter the email address associated with your account, and we'll send you a link to reset your password. The link will expire after 24 hours for security reasons.</p>
+                    </div>
+                </div>
+                
+                <!-- Reporting Issues Questions -->
+                <div class="faq-item" data-category="reporting">
+                    <div class="faq-question">
+                        <span>What types of issues can I report?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>You can report various community issues including potholes, broken streetlights, garbage accumulation, sewer problems, damaged sidewalks, fallen trees, graffiti, and other public space maintenance issues. If you're unsure whether something can be reported, feel free to submit it anyway and our system will categorize it appropriately.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="reporting">
+                    <div class="faq-question">
+                        <span>How long does it take for issues to be resolved?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Resolution times vary depending on the type and severity of the issue, as well as local government response times. Simple issues like potholes might be fixed within a few days, while more complex problems could take several weeks. You can track the status of your reports in your account dashboard.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="reporting">
+                    <div class="faq-question">
+                        <span>Do I need to provide my location when reporting an issue?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, location data is essential for us to route your report to the correct local authorities. Our app automatically captures your location when you take a photo of the issue, but you can also manually adjust the location on the map if needed. Your precise location is only shared with authorities to address the specific issue.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="reporting">
+                    <div class="faq-question">
+                        <span>Can I report issues anonymously?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can choose to report issues anonymously. However, anonymous reports cannot be tracked for status updates, and you won't earn points on the leaderboard. Some municipalities may also give priority to reports from verified accounts.</p>
+                    </div>
+                </div>
+                
+                <!-- Privacy & Security Questions -->
+                <div class="faq-item" data-category="privacy">
+                    <div class="faq-question">
+                        <span>How is my personal information protected?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We take privacy seriously. Your personal information is encrypted and stored securely. We only share necessary information with local authorities to address reported issues. Your contact information is never sold to third parties. For more details, please read our Privacy Policy.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="privacy">
+                    <div class="faq-question">
+                        <span>Who can see the issues I report?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Reported issues are visible to local government authorities responsible for addressing them. Some issues may also appear on our public map to prevent duplicate reports. Your personal information is not displayed publicly unless you choose to make your profile public on the leaderboard.</p>
+                    </div>
+                </div>
+                
+                <!-- Technical Questions -->
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <span>The camera isn't working. What should I do?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>First, ensure that you've granted camera permissions to your browser. If the problem persists, try refreshing the page or using a different browser. You can also upload a photo from your device instead of using the camera directly. If you continue to experience issues, contact our support team.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <span>Why isn't my location being detected?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Location detection requires both browser permissions and a stable internet connection. Make sure you've allowed location access when prompted. If you're indoors or in an area with poor GPS signal, the location accuracy might be affected. You can always manually adjust your location on the map before submitting a report.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-category="technical">
+                    <div class="faq-question">
+                        <span>Is there a mobile app for CivicFix?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Currently, CivicFix is a web-based application that works on all mobile browsers. We're developing native mobile apps for iOS and Android, which will be released later this year. The web app is optimized for mobile use and can be added to your home screen for app-like functionality.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p>Can't find the answer you're looking for? Please reach out to our friendly support team.</p>
+            <a href="contact.html" class="btn btn-signup">Contact Us</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CivicFix</h3>
+                    <p>Making our communities better, one report at a time.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="home.html#features">Features</a></li>
+                        <li><a href="home.html#how-it-works">How It Works</a></li>
+                        <li><a href="home.html#map">Map</a></li>
+                        <li><a href="home.html#report">Report Issue</a></li>
+                        <li><a href="home.html#leaderboard">Leaderboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Help Center</a></li>
+                        <li><a href="FAQ.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="privacy.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form>
+                        <input type="email" class="form-control" placeholder="Your Email" style="margin-bottom: 10px;">
+                        <button class="btn btn-signup" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CivicFix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="FAQ.js"></script>
+</body>
+</html>

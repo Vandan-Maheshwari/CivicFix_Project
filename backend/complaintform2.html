@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Civic Issue Complaint Form</title>
+</head>
+<body>
+  <div>
+    <h2>Complainant Details</h2>
+    <form>
+      <label>Mobile Number *</label>
+      <input type="text" name="mobile" required>
+
+      <label>Name *</label>
+      <input type="text" name="name" required>
+
+      <label>Surname *</label>
+      <input type="text" name="surname" required>
+
+      <label>Email</label>
+      <input type="email" name="email">
+
+      <label>Gender *</label>
+      <select name="gender" required>
+        <option value="">Select</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+
+      <label>Residing District *</label>
+      <input type="text" name="district" required>
+
+      <label>Residing Block *</label>
+      <input type="text" name="block" required>
+
+      <label>Address *</label>
+      <textarea name="address" rows="2" required></textarea>
+
+      <h2>Registration of Complaint</h2>
+
+      <label>Complaint Type *</label>
+      <select name="type" required>
+        <option value="">Select</option>
+        <option>Urban</option>
+        <option>Rural</option>
+      </select>
+
+      <label>Department *</label>
+      <input type="text" name="department" required>
+
+      <label>Category of Complaint *</label>
+      <select name="category" required>
+        <option value="">Select</option>
+        <option>Pothole</option>
+        <option>Garbage</option>
+        <option>Street Light</option>
+        <option>Water Supply</option>
+        <option>Other</option>
+      </select>
+
+      <label>Description *</label>
+      <textarea name="description" rows="4" required></textarea>
+
+      <label>Upload Image (Optional)</label>
+      <input type="file" name="file">
+
+      <button type="submit">Submit Complaint</button>
+    </form>
+  </div>
+</body>
+</html>

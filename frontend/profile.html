@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - CivicFix</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="icon" href="Civic_icon.jpeg">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-house-damage"></i>
+                    <span>CivicFix</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../frontend2/home.html#features">Features</a></li>
+                    <li><a href="../frontend2/home.html#map">Map</a></li>
+                    <li><a href="../frontend2/home.html#report">Report Issue</a></li>
+                    <li><a href="../frontend2/home.html#leaderboard">Leaderboard</a></li>
+                    <li><a href="profile.html" class="active">Profile</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="home.html" id="logout-btn" class="btn btn-login">Logout</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Profile Header -->
+    <div class="profile-header">
+        <div class="container">
+            <h1>My Profile</h1>
+            <p>Manage your account and track your reports</p>
+        </div>
+    </div>
+
+    <!-- Profile Content -->
+    <div class="profile-container">
+        <div class="profile-content">
+            <!-- Sidebar -->
+            <div class="profile-sidebar">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" alt="User Avatar" class="user-avatar">
+                <h2 class="user-name">Sarah Johnson</h2>
+                <p class="user-role">Community Champion</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">42</div>
+                        <div class="stat-label">Reports</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">210</div>
+                        <div class="stat-label">Points</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">Rank</div>
+                    </div>
+                </div>
+                
+                <ul class="profile-menu">
+                    <li><a href="#reports" class="active" data-tab="reports"><i class="fas fa-list"></i> My Reports</a></li>
+                    <li><a href="#edit" data-tab="edit"><i class="fas fa-user-edit"></i> Edit Profile</a></li>
+                    <li><a href="#achievements" data-tab="achievements"><i class="fas fa-trophy"></i> Achievements</a></li>
+                    <li><a href="#settings" data-tab="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                </ul>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="profile-main">
+                <!-- Reports Tab -->
+                <div id="reports" class="tab-content active">
+                    <h2 class="section-title">My Reports</h2>
+                    <p>Here's a history of all the issues you've reported to CivicFix.</p>
+                    
+                    <table class="reports-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Issue Type</th>
+                                <th>Location</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Oct 15, 2023</td>
+                                <td>Pothole</td>
+                                <td>Main St & 5th Ave</td>
+                                <td><span class="status-badge status-resolved">Resolved</span></td>
+                                <td><a href="#" class="view-details">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>Oct 12, 2023</td>
+                                <td>Garbage Accumulation</td>
+                                <td>Central Park</td>
+                                <td><span class="status-badge status-in-progress">In Progress</span></td>
+                                <td><a href="#" class="view-details">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>Oct 8, 2023</td>
+                                <td>Broken Streetlight</td>
+                                <td>Oak Street</td>
+                                <td><span class="status-badge status-pending">Pending</span></td>
+                                <td><a href="#" class="view-details">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>Oct 3, 2023</td>
+                                <td>Sewer Leak</td>
+                                <td>Maple Avenue</td>
+                                <td><span class="status-badge status-resolved">Resolved</span></td>
+                                <td><a href="#" class="view-details">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <td>Sep 28, 2023</td>
+                                <td>Pothole</td>
+                                <td>Highway 101 Exit</td>
+                                <td><span class="status-badge status-resolved">Resolved</span></td>
+                                <td><a href="#" class="view-details">View Details</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Edit Profile Tab -->
+                <div id="edit" class="tab-content">
+                    <h2 class="section-title">Edit Profile</h2>
+                    <p>Update your personal information and preferences.</p>
+                    
+                    <form class="edit-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" class="form-control" value="Sarah">
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" class="form-control" value="Johnson">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" value="sarah.johnson@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" class="form-control" value="(555) 123-4567">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" class="form-control" value="123 Main Street">
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" id="city" class="form-control" value="San Francisco">
+                            </div>
+                            <div class="form-group">
+                                <label for="zipcode">ZIP Code</label>
+                                <input type="text" id="zipcode" class="form-control" value="94102">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" class="form-control" rows="4">I'm passionate about making our community a better place to live. Join me in reporting issues and improving our neighborhood!</textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-save">Save Changes</button>
+                    </form>
+                </div>
+                
+                <!-- Achievements Tab -->
+                <div id="achievements" class="tab-content">
+                    <h2 class="section-title">My Achievements</h2>
+                    <p>Earn badges by reporting issues and contributing to your community.</p>
+                    
+                    <div class="achievements-grid">
+                        <div class="achievement-card badge-earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3>First Report</h3>
+                            <p>Submitted your first issue report</p>
+                            <p><small>Earned: Sep 15, 2023</small></p>
+                        </div>
+                        
+                        <div class="achievement-card badge-earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <h3>Top Reporter</h3>
+                            <p>Became the #1 reporter in your area</p>
+                            <p><small>Earned: Oct 10, 2023</small></p>
+                        </div>
+                        
+                        <div class="achievement-card badge-earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h3>Problem Solver</h3>
+                            <p>Had 10 reports marked as resolved</p>
+                            <p><small>Earned: Oct 5, 2023</small></p>
+                        </div>
+                        
+                        <div class="achievement-card badge-not-earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-camera"></i>
+                            </div>
+                            <h3>Photo Expert</h3>
+                            <p>Submitted reports with photos 20 times</p>
+                            <p><small>12/20 complete</small></p>
+                        </div>
+                        
+                        <div class="achievement-card badge-not-earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <h3>Neighborhood Watch</h3>
+                            <p>Reported issues in 5 different locations</p>
+                            <p><small>3/5 complete</small></p>
+                        </div>
+                        
+                        <div class="achievement-card badge-not-earned">
+                            <div class="achievement-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Community Leader</h3>
+                            <p>Reached 500 points on the leaderboard</p>
+                            <p><small>210/500 complete</small></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Settings Tab -->
+                <div id="settings" class="tab-content">
+                    <h2 class="section-title">Account Settings</h2>
+                    <p>Manage your account preferences and notifications.</p>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" checked> Email me when my reports are updated
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" checked> Notify me about new issues in my area
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox"> Subscribe to monthly newsletter
+                        </label>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>
+                            <input type="checkbox" checked> Show my name publicly on reports
+                        </label>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">Change Password</h3>
+                    <div class="form-group">
+                        <label for="currentPassword">Current Password</label>
+                        <input type="password" id="currentPassword" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="newPassword">New Password</label>
+                        <input type="password" id="newPassword" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm New Password</label>
+                        <input type="password" id="confirmPassword" class="form-control">
+                    </div>
+                    
+                    <button type="submit" class="btn-save">Update Password</button>
+                    
+                    <h3 style="margin-top: 40px; color: #e74c3c;">Danger Zone</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 20px;">Once you delete your account, there is no going back. Please be certain.</p>
+                    <button type="button" class="btn-delete-account">Delete My Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CivicFix</h3>
+                    <p>Making our communities better, one report at a time.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="../frontend2/home.html#features">Features</a></li>
+                        <li><a href="../frontend2/home.html#how-it-works">How It Works</a></li>
+                        <li><a href="../frontend2/home.html#map">Map</a></li>
+                        <li><a href="../frontend2/home.html#report">Report Issue</a></li>
+                        <li><a href="../frontend2/home.html#leaderboard">Leaderboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="../frontend2/contact.html">Help Center</a></li>
+                        <li><a href="../frontend2/FAQ.html">FAQs</a></li>
+                        <li><a href="../frontend2/contact.html">Contact Us</a></li>
+                        <li><a href="../frontend2/privacy.html">Privacy Policy</a></li>
+                        <li><a href="../frontend2/privacy.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form>
+                        <input type="email" class="form-control" placeholder="Your Email" style="margin-bottom: 10px;">
+                        <button class="btn btn-signup" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CivicFix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="profile.js"></script>
+</body>
+</html>

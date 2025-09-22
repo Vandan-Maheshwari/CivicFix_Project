@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CivicFix - Report Local Issues</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="home.css">
+    <link rel = "icon" href="Civic_icon.jpeg" >
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-house-damage"></i>
+                    <span>CivicFix</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#map">Map</a></li>
+                    <li><a href="#report">Report Issue</a></li>
+                    <li><a href="#leaderboard">Leaderboard</a></li>
+                </ul>
+                <div class="auth-buttons">
+                    <a href="enter.html" class="btn btn-login">Login</a>
+                    <a href="enter.html" class="btn btn-signup">Sign up</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Report Local Issues.<span class="new-line">Make a Difference.</span></h1>
+                <p>CivicFix helps you report community issues like potholes, garbage dumps, and broken streetlights quickly and effectively. Report anonymously or create an account to track your impact.</p>
+                <button class="btn btn-report">Report an Issue Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>How CivicFix Works</h2>
+                <p>Our platform makes it easy to report local issues and get them resolved quickly</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Snap a Photo</h3>
+                    <p>Take a picture of the issue you've encountered in your community</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Auto Location</h3>
+                    <p>We automatically detect your location to pinpoint the issue</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Analysis</h3>
+                    <p>Our AI classifies the issue and prioritizes it based on urgency</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Get It Fixed</h3>
+                    <p>The report is forwarded to local authorities for resolution</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>Simple Steps to Report an Issue</h2>
+                <p>Reporting a community issue has never been easier</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Take a Photo</h3>
+                    <p>Capture the issue with your phone's camera - no login required</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Add Description</h3>
+                    <p>Describe the issue to help authorities understand the problem</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Submit Anonymously</h3>
+                    <p>Your report is submitted on behalf of the CivicFix community</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Track Progress</h3>
+                    <p>Create an account to track your reports and earn community points</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section" id="map">
+        <div class="container">
+            <div class="section-title">
+                <h2>Issues Reported in Your Area</h2>
+                <p>See what issues have been reported near you</p>
+            </div>
+            <div class="map-container">
+                <div id="interactive-map"></div>
+                <img src="https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/-122.4194,37.7749,12.5,0/600x500?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4M29iazA2Z2gycXA4N2pmbDZmangifQ.-g_vE53SD2WrJ6tFX7QHmA" alt="Map of San Francisco" class="static-map">
+                <div class="map-overlay">
+                    <h3>Interactive Community Map</h3>
+                    <p>See reported issues in your neighborhood. Each marker represents a reported issue that's being tracked by CivicFix.</p>
+                </div>
+                <div class="map-controls">
+                    <button class="map-btn" id="locate-me">
+                        <i class="fas fa-location-arrow"></i> My Location
+                    </button>
+                    <button class="map-btn" id="show-issues">
+                        <i class="fas fa-map-marker-alt"></i> Show Issues
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Report Section -->
+    <section class="report-section" id="report">
+        <div class="container">
+            <div class="section-title">
+                <h2>Report a Community Issue</h2>
+                <p>Help make your neighborhood a better place - report quickly and easily</p>
+            </div>
+            <div class="report-form">
+                <div class="image-upload" id="open-camera">
+                    <i class="fas fa-camera"></i>
+                    <p>Click to take a photo of the issue</p>
+                    <p><small>Location will be automatically captured with your photo</small></p>
+                </div>
+                
+                <div id="photo-preview" style="display: none; text-align: center; margin-bottom: 20px;">
+                    <img id="preview-img" src="" alt="Captured photo" style="max-width: 100%; max-height: 200px; border-radius: 8px;">
+                    <p id="location-details" style="margin-top: 10px; font-size: 0.9rem;"></p>
+                </div>
+                
+                <!-- User information section will be dynamically populated here -->
+                
+                <div class="form-group">
+                    <label for="issue-type">Issue Type *</label>
+                    <select class="form-control" id="issue-type">
+                        <option value="">Select the type of issue</option>
+                        <option value="pothole">Pothole</option>
+                        <option value="garbage">Garbage Accumulation</option>
+                        <option value="streetlight">Broken Streetlight</option>
+                        <option value="sewer">Sewer Leak</option>
+                        <option value="water_supply">Water Supply Issue</option>
+                        <option value="road_repair">Road Repair</option>
+                        <option value="other">Other Issue</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <textarea class="form-control" id="description" placeholder="Please describe the issue in detail - what exactly is the problem and how does it affect the community?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" placeholder="Location will be detected from your photo" readonly>
+                    <p class="location-lock-message" id="location-lock-message">
+                        <i class="fas fa-lock"></i> Location locked to photo. Take a new photo to change location.
+                    </p>
+                </div>
+                
+                <!-- Privacy notice -->
+                <div class="privacy-notice" style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; font-size: 0.9rem; color: #495057; border-left: 4px solid #28a745;">
+                    <i class="fas fa-shield-alt" style="color: #28a745; margin-right: 8px;"></i>
+                    <strong>Privacy:</strong> Anonymous reports are submitted on behalf of the CivicFix community. No personal information is required or collected for issue reporting.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Camera Modal -->
+    <div class="camera-modal" id="camera-modal">
+        <div class="camera-container">
+            <div class="close-camera" id="close-camera">&times;</div>
+            <h2 style="text-align: center; margin-bottom: 15px;">Take a Photo</h2>
+            <p style="text-align: center; margin-bottom: 15px;">Ensure you allow camera and location access when prompted</p>
+            
+            <div id="camera-status" class="status warning">Requesting camera access...</div>
+            
+            <div id="camera-view">
+                <video id="video" autoplay playsinline></video>
+                <button id="capture-btn"></button>
+            </div>
+            
+            <div class="captured-photo" id="captured-photo">
+                <h3>Photo Preview</h3>
+                <img id="captured-img" src="" alt="Captured photo">
+                <div id="photo-location-info" style="margin-top: 15px;"></div>
+                <div class="photo-actions">
+                    <button class="btn btn-login" id="retake-photo">Retake</button>
+                    <button class="btn btn-signup" id="use-photo">Use This Photo</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <section class="leaderboard" id="leaderboard">
+        <div class="container">
+            <div class="section-title">
+                <h2>Community Leaderboard</h2>
+                <p>Our top contributors making a difference</p>
+            </div>
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Name</th>
+                        <th>Reports</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Sarah Johnson</td>
+                        <td>42</td>
+                        <td>210</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Michael Chen</td>
+                        <td>38</td>
+                        <td>190</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Emma Rodriguez</td>
+                        <td>35</td>
+                        <td>175</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>James Wilson</td>
+                        <td>29</td>
+                        <td>145</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Priya Patel</td>
+                        <td>27</td>
+                        <td>135</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>CivicFix</h3>
+                    <p>Making our communities better, one report at a time.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#map">Map</a></li>
+                        <li><a href="#report">Report Issue</a></li>
+                        <li><a href="#leaderboard">Leaderboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Help Center</a></li>
+                        <li><a href="FAQ.html">FAQs</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="privacy.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates</p>
+                    <form>
+                        <input type="email" class="form-control" placeholder="Your Email" style="margin-bottom: 10px;">
+                        <button class="btn btn-signup" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 CivicFix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="api.js"></script>
+    <script src="home.js"></script>
+</body>
+</html>
