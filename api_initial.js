@@ -6,10 +6,10 @@ class CivicFixAPI {
         // Update this URL to match your Flask server
         this.baseURL = 'http://localhost:5000/api';
         this.token = null;
-
+        
         // Initialize from localStorage
         this.loadFromStorage();
-
+        
         // Set up periodic token validation
         this.setupTokenValidation();
     }
@@ -90,14 +90,14 @@ class CivicFixAPI {
 
             let data;
             const contentType = response.headers.get('content-type');
-
+            
             if (contentType && contentType.includes('application/json')) {
                 data = await response.json();
             } else {
                 const text = await response.text();
                 throw new Error(`Server returned non-JSON response: ${text.substring(0, 200)}`);
             }
-
+            
             if (!response.ok) {
                 // Handle authentication errors
                 if (response.status === 401 && !options.skipAuth) {
@@ -114,36 +114,30 @@ class CivicFixAPI {
                 error: error.message,
                 options: { ...options, body: options.body instanceof FormData ? '[FormData]' : options.body }
             });
-
+            
             // Handle network errors
             if (error.name === 'TypeError' && error.message.includes('fetch')) {
                 throw new Error('Unable to connect to server. Please check your connection and ensure the server is running.');
             }
-
+            
             throw error;
         }
     }
 
     // Authentication Methods
-    // Fixed Registration Method in api.js
     async register(userData) {
         try {
-            console.log('Sending registration data:', userData); // Debug log
-
             const response = await this.apiCall('/register', {
                 method: 'POST',
                 body: JSON.stringify(userData),
                 skipAuth: true
             });
 
-            console.log('Registration response:', response); // Debug log
-
-            // The response is already the parsed JSON from apiCall
             if (response.success && response.token) {
                 this.saveToStorage(response.token, response.user);
                 return response;
             } else {
-                throw new Error(response.error || response.message || 'Registration failed');
+                throw new Error(response.message || 'Registration failed');
             }
         } catch (error) {
             console.error('Registration error:', error);
@@ -153,22 +147,17 @@ class CivicFixAPI {
 
     async login(credentials) {
         try {
-            console.log('Sending login data:', credentials); // Debug log
-
             const response = await this.apiCall('/login', {
                 method: 'POST',
                 body: JSON.stringify(credentials),
                 skipAuth: true
             });
 
-            console.log('Login response:', response); // Debug log
-
-            // The response is already the parsed JSON from apiCall
             if (response.success && response.token) {
                 this.saveToStorage(response.token, response.user);
                 return response;
             } else {
-                throw new Error(response.error || response.message || 'Login failed');
+                throw new Error(response.message || 'Login failed');
             }
         } catch (error) {
             console.error('Login error:', error);
@@ -283,7 +272,7 @@ class CivicFixAPI {
                 queryParams.append(key, filters[key]);
             }
         });
-
+        
         const queryString = queryParams.toString();
         return await this.apiCall(`/reports${queryString ? '?' + queryString : ''}`, {
             method: 'GET',
@@ -360,7 +349,7 @@ class CivicFixAPI {
     updateAuthUI() {
         const authButtons = document.querySelector('.auth-buttons');
         if (!authButtons) return;
-
+        
         if (this.isAuthenticated()) {
             const user = this.getCurrentUser();
             authButtons.innerHTML = `
@@ -369,7 +358,7 @@ class CivicFixAPI {
                 </a>
                 <a href="#" id="logout-btn" class="btn btn-signup">Logout</a>
             `;
-
+            
             // Add logout event listener
             const logoutBtn = document.getElementById('logout-btn');
             if (logoutBtn) {
@@ -391,25 +380,25 @@ class CivicFixAPI {
     // Check authentication status on page load
     checkAuthOnLoad() {
         const currentPage = window.location.pathname.split('/').pop();
-
+        
         // Pages that require authentication
         const protectedPages = ['profile.html'];
-
+        
         // Pages that logged-in users shouldn't access
         const guestOnlyPages = ['enter.html'];
-
+        
         if (protectedPages.includes(currentPage) && !this.isAuthenticated()) {
             console.warn('Access denied: Authentication required');
             this.redirectToLogin();
             return false;
         }
-
+        
         if (guestOnlyPages.includes(currentPage) && this.isAuthenticated()) {
             console.info('Redirecting authenticated user to profile');
             this.redirectToProfile();
             return false;
         }
-
+        
         // Update UI for current auth state
         this.updateAuthUI();
         return true;
@@ -420,7 +409,7 @@ class CivicFixAPI {
 const api = new CivicFixAPI();
 
 // Auto-check authentication when DOM is loaded
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     api.checkAuthOnLoad();
 });
 
@@ -430,7 +419,7 @@ api.testConnection().then(connected => {
         console.log('Successfully connected to CivicFix backend');
     } else {
         console.warn('Could not connect to CivicFix backend. Please ensure the Flask server is running on http://localhost:5000');
-
+        
         // Show connection error to user
         const showConnectionError = () => {
             const notification = document.createElement('div');
@@ -447,14 +436,14 @@ api.testConnection().then(connected => {
                 </div>
             `;
             document.body.appendChild(notification);
-
+            
             setTimeout(() => {
                 if (notification.parentNode) {
                     document.body.removeChild(notification);
                 }
             }, 10000);
         };
-
+        
         // Show error after page loads
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', showConnectionError);

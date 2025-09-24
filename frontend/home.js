@@ -640,9 +640,6 @@ document.addEventListener("DOMContentLoaded", function () {
       // Validation - only validate visible/required fields
       const validationErrors = [];
 
-      if (!issueType) validationErrors.push('Issue type is required');
-      if (!description) validationErrors.push('Description is required');
-
       // For authenticated users, validate their visible input fields
       if (isUserAuthenticated) {
         if (!name) validationErrors.push('First name is required');
