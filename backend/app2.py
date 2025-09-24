@@ -3,7 +3,7 @@ from flask_cors import CORS
 from pymongo import MongoClient
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 import os
 import uuid
 import math
@@ -227,7 +227,7 @@ def register():
             'gender': data.get('gender', '').lower() if data.get('gender') else '',
             'district': data.get('district', '').strip().title() if data.get('district') else '',
             'password_hash': generate_password_hash(data['password']),
-            'created_at': datetime.utcnow(),
+            'created_at': datetime.now(timezone.utc),
             'reports_count': 0,
             'points': 0,
             'is_active': True,
@@ -240,7 +240,7 @@ def register():
         token = jwt.encode({
             'user_id': str(result.inserted_id),
             'email': user_data['email'],
-            'exp': datetime.utcnow() + timedelta(days=30)
+            'exp': datetime.now(timezone.utc) + timedelta(days=30)
         }, app.config['SECRET_KEY'], algorithm='HS256')
         
         return jsonify({
@@ -292,14 +292,14 @@ def login():
         # Update last login
         users_collection.update_one(
             {'_id': user['_id']},
-            {'$set': {'last_login': datetime.utcnow()}}
+            {'$set': {'last_login': datetime.now(timezone.utc)}}
         )
         
         # Generate JWT token
         token = jwt.encode({
             'user_id': str(user['_id']),
             'email': user['email'],
-            'exp': datetime.utcnow() + timedelta(days=30)
+            'exp': datetime.now(timezone.utc) + timedelta(days=30)
         }, app.config['SECRET_KEY'], algorithm='HS256')
         
         return jsonify({
@@ -526,7 +526,7 @@ def submit_report(current_user_id=None):
             'longitude': float(data['longitude']) if data.get('longitude') and str(data['longitude']).strip() not in ['', '0', 'null'] else None,
             'submitted': 0,
             'submitted_at': None,
-            'created_at': datetime.utcnow(),
+            'created_at': datetime.now(timezone.utc),
             'status': 'pending',
             'priority': priority_map.get(final_category, 'medium'),
             'user_id': ObjectId(current_user_id) if current_user_id else None,
@@ -552,7 +552,7 @@ def submit_report(current_user_id=None):
                     '$set': {
                         'submitted': 1,  # Mark as submitted
                         'status': 'submitted',
-                        'submitted_at': datetime.utcnow()
+                        'submitted_at': datetime.now(timezone.utc)
                     }
                 }
             )
@@ -877,7 +877,7 @@ def health_check():
     return jsonify({
         'success': True,
         'status': 'healthy',
-        'timestamp': datetime.utcnow().isoformat(),
+        'timestamp': datetime.now(timezone.utc).isoformat(),
         'database': db_status,
         'stats': {
             'reports': reports_count,
