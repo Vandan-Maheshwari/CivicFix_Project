@@ -356,6 +356,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 setTimeout(() => {
                     window.location.href = 'home.html';
                 }, 1000);
+            } else {
+            // This is the new logic to handle failed registration messages from the backend
+            showNotification(response.message || 'Registration failed. Please check your details.', 'error');
             }
         } catch (error) {
             console.error('Registration error:', error);
