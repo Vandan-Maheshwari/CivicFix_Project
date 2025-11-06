@@ -7,7 +7,7 @@ import sys
 # Load trained model
 MODEL_PATH = r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\civicfix_model4.h5"
 model = load_model(MODEL_PATH)
-# img_path= "C:\\Dont touch me !!!\\GIthub\\CivicFix\\test.jpg"
+# img_path= r"C:\\Dont touch me !!!\\GIthub\\CivicFix\\Test_rgb.jpg"
 
 # Load class names
 with open(r"C:\Dont touch me !!!\GIthub\CivicFix_Project\backend\class_names.json", "r") as f:
